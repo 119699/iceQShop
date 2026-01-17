@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 | iceQshop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card-bg: #ffffff;
+            --accent-pink: #E1166A;
+            --accent-blue: #334FD4;
+            --accent-orange: #FF6699;
+            --price: #d32f2f;
+            --text: #333333;
+            --shadow: 0 6px 16px rgba(0,0,0,0.10);
+            --radius: 16px;
+            --radius-btn: 50px;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(to bottom, #fff0f5 0%, #ffffff 60%);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: bouncy 2s infinite;
+        }
+        /* アニメーション: 元のheader imgに適用されていたものを流用 */
+        @keyframes bouncy {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        .header-btn {
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            border-radius: var(--radius-btn);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .header-btn.primary {
+            background: linear-gradient(135deg, #ff6699, #E1166A);
+            color: white;
+            box-shadow: 0 2px 8px rgba(225,22,106,0.25);
+        }
+        .header-btn.primary:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .header-btn.secondary {
+            background: #f5f5f5;
+            color: #555;
+        }
+        .header-btn.secondary:hover {
+            background: #e0e0e0;
+        }
+
+        /* --- Main Content Styles --- */
+        .main {
+            padding: 60px 24px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .content-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            border: 2px solid #ffebee;
+        }
+
+        /* タイトルエリア */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px dashed #ffebee;
+            padding-bottom: 24px;
+        }
+        .page-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            color: var(--accent-pink);
+            margin: 0 0 12px;
+        }
+        .sub-title {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+        .tag-important {
+            display: inline-block;
+            background: var(--accent-pink);
+            color: white;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        /* 規約本文スタイル */
+        .terms-content h2 {
+            font-size: 1.4rem;
+            color: var(--accent-pink);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ffebee;
+            display: flex;
+            align-items: center;
+        }
+        .terms-content h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--accent-pink);
+            border-radius: 4px;
+            margin-right: 12px;
+        }
+        .terms-content h3 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-top: 24px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .terms-content p, .terms-content li {
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .terms-content ul {
+            padding-left: 24px;
+            list-style-type: disc;
+        }
+        .terms-content ol {
+            padding-left: 24px;
+            list-style-type: decimal;
+        }
+        .terms-content strong {
+            color: #c62828;
+            font-weight: 700;
+        }
+        .terms-content .highlight {
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* 注意書きボックス */
+        .notice-box {
+            background: #fff5f7;
+            border: 1px solid #ffcdd2;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 32px 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* 18歳以上同意部分 */
+        .agreement-check {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 2px solid var(--accent-blue);
+            color: #0d47a1;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 40px;
+            box-shadow: 0 4px 12px rgba(51, 79, 212, 0.15);
+        }
+
+        .date-stamp {
+            text-align: right;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #888;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* ボタンエリア */
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        a.button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6699, #E1166A);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: var(--radius-btn);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s;
+            box-shadow: 0 4px 12px rgba(225,22,106,0.3);
+        }
+        a.button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(225,22,106,0.4);
+        }
+        a.button.secondary {
+            background: #e0e0e0;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        a.button.secondary:hover {
+            background: #d0d0d0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: linear-gradient(to right, #E1166A, #ff6699);
+            color: white;
+            text-align: center;
+            padding: 24px;
+            margin-top: auto; /* footerを下に固定 */
+            font-weight: 500;
+        }
+        footer a {
+            color: white;
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+        footer a:hover {
+            opacity: 1;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .main { padding: 40px 16px 24px; }
+            .content-card { padding: 24px; }
+            .header-buttons { gap: 8px; }
+            .header-btn { padding: 6px 12px; font-size: 0.85rem; }
+            .page-header h1 { font-size: 1.8rem; }
+            .terms-content h2 { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー（単体で動作するようにHTMLを直接記述） -->
+<div id="header-container"></div>
+
+    <main class="main">
+        <div class="content-card">
+            
+            <div class="page-header">
+                <h1>利用規約</h1>
+                <p class="sub-title"><span class="tag-important">必須</span>ご購入前に必ずお読みください</p>
+            </div>
+
+            <div class="notice-box">
+                当店と購入ユーザーとの売買契約に係り、お客様は以下に定める当店の規約を遵守し、規約に従い売買契約を執行しなければならない。この利用規約は売買契約を結ぶ為の必須事項であり、すべて契約はこの規約に合意した前提で結ばれるものとする。
+            </div>
+
+            <div class="terms-content">
+                
+                <h2>第一章　顧客の義務</h2>
+                <ol>
+                    <li>
+                        お客様はその事実が無いにも拘らず、虚偽の詐欺報告など、その他当店の名誉を毀損し、当店の業務を妨害すると認められる行為を行ってはならない。
+                    </li>
+                    <li>
+                        <span class="highlight">#BxRの実績</span> のハッシュタグをつけて、当店の指定する文面以外のツイートを投稿してはならない。
+                    </li>
+                </ol>
+
+                <h2>第二章　当店の権利</h2>
+                <ol>
+                    <li>
+                        以下の事項に当てはまる行為が認められた場合、例え売買契約が締結された後であっても、その契約は無効とする。なお、上記該当するかの判定権は当店に帰属するものとする。
+                        <ul>
+                            <li>当店とお客様との間で円滑なコミュニケーションが取れず、当店とお客様との間の信頼関係が損なわれたと判断されるとき</li>
+                            <li>取引中、催促等圧力をかける行為</li>
+                            <li>その他、当店とお客様との信頼関係が損なわれたと判断するとき</li>
+                        </ul>
+                    </li>
+                    <li>
+                        ユーザーが本規約に反した場合、当店がユーザーに対して以下の事項を含め、適切な処置を行うことに合意する。
+                        <ul>
+                            <li>ユーザーに対し、訴訟を講じること</li>
+                            <li>法執行機関・捜査機関への情報の開示</li>
+                            <li>本サービスの利用権をはく奪する</li>
+                            <li>当店が納品した商品の没収</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h2>第三章　負債</h2>
+                <ol>
+                    <li>購入後、当店に契約上の瑕疵や取引上の不備がない限り、納品後の商品に関して一切の責任を負わない。</li>
+                    <li>当店がアカウントを取り返す、乗っ取ることはありません。</li>
+                    <li>
+                        代行の際、その後起こった BAN や 取り返し が起こった場合でも当店は一切の責任を負わない。<br>
+                        <span style="font-size: 0.9em; color: #666;">（当店の代行によるBANのリスクはないため）</span>
+                    </li>
+                </ol>
+
+                <h2>第四章　返金ポリシー</h2>
+                <ol>
+                    <li>当店に売買契約上の瑕疵、取引上の不備が認められる場合は返金或いは同等品によって償還する。</li>
+                </ol>
+
+                <h2>第五章　補則</h2>
+                <ol>
+                    <li>当店はお客様に事前の承認を得ることなく、この利用規約を変更することができます。</li>
+                    <li>お客様と売買契約を締結した際の利用規約が適用されます。</li>
+                    <li>利用規約を変更後、遡及してお客様に処分を行うことはありません。</li>
+                    <li>利用規約を変更前に契約したお客様には、契約締結時の規約が適用される為、新しい規約は適用されません。</li>
+                    <li>
+                        取り返しとは、正当なアカウントの持ち主によってアカウントの復旧処置をされ、アカウントが正当な持ち主に返ってしまうことです。
+                    </li>
+                </ol>
+
+                <div class="agreement-check">
+                    18歳以上又は保護者の同意を得て利用規約に同意します。
+                </div>
+
+                <div class="date-stamp">
+                    令和4年　8月　9日　施行
+                </div>
+
+            </div>
+
+            <div class="button-row">
+                <a href="https://119699.github.io/iceQShop/home.html" class="button secondary">ホームへ戻る</a>
+            </div>
+        </div>
+    </main>
+
+<footer>
+   iceQshop  © 2026 | <a href="https://119699.github.io/iceQShop/team-of-service.html">利用規約</a>
+</footer>
+
+<script>
+    fetch('https://raw.githubusercontent.com/119699/iceQShop/main/header.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('header.html の読み込みに失敗しました');
+            }
+            return response.text();
+        })
+        .then(data => {
+            const base = 'https://119699.github.io/iceQShop/';
+            let fixed = data
+                .replace(/src=["']([^"']+)["']/g, (m, p) => {
+                    if (p.startsWith('http') || p.startsWith('//') || p.startsWith('data:')) return m;
+                    return `src="${new URL(p, base).href}"`;
+                })
+                .replace(/href=["']([^"']+\.css)["']/g, (m, p) => {
+                    if (p.startsWith('http') || p.startsWith('//')) return m;
+                    return `href="${new URL(p, base).href}"`;
+                })
+                .replace(/url\((["']?)([^)"']+)\1\)/g, (m, q, p) => {
+                    if (p.startsWith('http') || p.startsWith('//') || p.startsWith('data:')) return m;
+                    return `url(${q}${new URL(p, base).href}${q})`;
+                });
+
+            document.getElementById('header-container').innerHTML = fixed;
+        })
+        .catch(error => {
+            console.error(error);
+            document.getElementById('header-container').innerHTML = 
+                '<header style="padding:20px;text-align:center;background:#fff;border-bottom:1px solid #ffebee;">' +
+                '<h1 style="color:#E1166A;">iceQshop</h1></header>';
+        });
+</script>
+</body>
+</html>
