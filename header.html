@@ -1,0 +1,105 @@
+<style>
+    header {
+        background: #ffffff;
+        border-bottom: 1px solid #ffebee;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(225,22,106,0.08);
+        height: 70px;
+    }
+
+    .logo-link {
+        display: flex;
+        align-items: center;
+    }
+
+    header img {
+        height: 52px;
+        animation: bouncy 2s infinite;
+    }
+
+    @keyframes bouncy {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+
+    .header-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+    }
+
+    .brand-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, #E1166A, #ff6699, #E1166A);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        background-size: 200% auto;
+        animation: gradientFlow 4s linear infinite;
+        letter-spacing: -1.5px;
+    }
+
+    @keyframes gradientFlow {
+        0%   { background-position: 0% center; }
+        100% { background-position: 200% center; }
+    }
+
+    .header-buttons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .header-buttons a.button {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 999px;
+        text-decoration: none;
+        transition: all 0.25s;
+        margin-top: 10px;
+    }
+
+    .header-buttons a.button.secondary {
+        background: #f5f5f5;
+        color: #E1166A;
+        border: 1px solid #ffc1d8;
+    }
+
+    .header-buttons a.button.secondary:hover {
+        background: #ffebee;
+        transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+        header { padding: 0 16px; height: 64px; }
+        header img { height: 44px; }
+        .brand-text { font-size: 1.9rem; }
+        .header-buttons a.button { padding: 7px 14px; font-size: 0.82rem; margin-top: 10px;}
+    }
+</style>
+
+<header>
+    <a href="home.html" class="logo-link">
+        <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Ruci.png" alt="iceQshop Logo">
+    </a>
+
+    <div class="header-center">
+        <span class="brand-text">iceQshop</span>
+    </div>
+
+    <div class="header-buttons">
+        <a href="https://119699.github.io/iceQShop/team-of-service.html" class="button secondary">利用規約</a>
+    </div>
+</header>
