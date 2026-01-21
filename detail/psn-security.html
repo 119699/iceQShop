@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セキュリティ代行&サポートサービス | iceQshop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/119699/iceQShop/refs/heads/main/Ruci.ico">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card-bg: #ffffff;
+            --accent-pink: #E1166A;
+            --accent-blue: #334FD4;
+            --accent-orange: #FF6699;
+            --accent-green: #4CAF50;
+            --price: #d32f2f;
+            --text: #333333;
+            --shadow: 0 6px 16px rgba(0,0,0,0.10);
+            --radius: 16px;
+            --radius-btn: 50px;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(to bottom, #fff0f5 0%, #ffffff 60%);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #ffebee;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(225,22,106,0.08);
+        }
+        header img {
+            height: 56px;
+            animation: bouncy 2s infinite;
+        }
+        @keyframes bouncy {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .header-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        .header-buttons a.button {
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+        .main {
+            padding: 80px 24px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .product-detail {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 32px;
+            border: 2px solid #ffebee;
+            box-sizing: border-box;
+        }
+        .product-image-container {
+            width: 100%;
+            background: #fff5f7;
+            border-bottom: 1px solid #ffebee;
+            text-align: center;
+        }
+        .product-image-container:last-child {
+            border-bottom: none;
+            border-bottom: 1px solid #ffebee;
+        }
+        .product-detail img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .product-detail h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-pink);
+            margin: 0 0 8px;
+            text-align: center;
+        }
+        .price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--price);
+            text-align: center;
+            margin: 8px 0 32px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .credential-section {
+            margin-bottom: 32px;
+        }
+        .credential-box {
+            background: #fff;
+            border: 2px solid #e3f2fd;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(51, 79, 212, 0.05);
+        }
+        .credential-title {
+            text-align: center;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .credential-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .credential-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #f8fbff;
+            border-radius: 8px;
+            padding: 16px 8px;
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid #e3f2fd;
+            transition: transform 0.2s;
+        }
+        .credential-item:hover {
+            transform: translateY(-2px);
+            background: #fff;
+            border-color: var(--accent-blue);
+        }
+        .credential-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .preserve-box {
+            background: #e3f2fd;
+            border: 2px solid #90caf9;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0 20px;
+        }
+        .preserve-title {
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .preserve-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .preserve-item {
+            background: #fff;
+            border: 1px solid #bbdefb;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .preserve-item::before {
+            content: '✅';
+            font-size: 0.8rem;
+        }
+
+        .info-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .info-box h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+        .info-box p {
+            margin-bottom: 16px;
+            line-height: 1.75;
+            color: #444;
+            font-size: 0.95rem;
+        }
+        .info-box .note-text {
+            font-size: 0.85rem;
+            color: #666;
+            background: #f4f6f8;
+            padding: 12px;
+            border-radius: 6px;
+            display: block;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .notice {
+            background: #fff5f7;
+            border: 2px solid #ffcdd2;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 0 0 24px;
+        }
+        .noti-sf {
+            background: #e7ffd9;
+            border: 2px solid #81ff92;
+        }
+        .notice-title {
+            font-weight: 700;
+            color: var(--accent-pink);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .notice-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .notice-list li {
+            padding: 8px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        .notice-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+        .notice-list li strong {
+            color: #c62828;
+            font-weight: 700;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+            width: 100%;
+        }
+        a.button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6699, #E1166A);
+            color: white;
+            border: none;
+            padding: 16px 48px;
+            border-radius: var(--radius-btn);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s;
+            box-shadow: 0 4px 12px rgba(225,22,106,0.3);
+            text-align: center;
+        }
+        a.button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(225,22,106,0.4);
+        }
+        a.button.secondary {
+            background: #e0e0e0;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        a.button.secondary:hover {
+            background: #d0d0d0;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(to right, #E1166A, #ff6699);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-weight: 500;
+        }
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .main { padding: 80px 16px 24px; }
+            .product-detail { padding: 24px 16px; }
+            .info-box { padding: 20px 16px; }
+            .credential-grid { grid-template-columns: repeat(2, 1fr); }
+            .button-row { flex-direction: column; align-items: center; }
+            a.button { width: 100%; max-width: 400px; box-sizing: border-box; }
+        }
+        @media (min-width: 600px) {
+            .credential-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main">
+        <div class="product-detail">
+            <div class="product-image-container">
+                <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Psn/psn_secu.png">
+            </div>
+            <br>
+
+            <h1>セキュリティ代行&<br>サポートサービス</h1>
+            <div class="price">
+                10,000円
+            </div>
+            <div class="credential-section">
+                <div class="credential-box">
+                    <div class="credential-title"><span style="font-size:1.2rem">🛡️</span> 運営実績・経験</div>
+                    <div class="credential-grid">
+                        <div class="credential-item">
+                            <span class="credential-icon">🏆</span>
+                            <span>業者歴<br>8年以上</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">📊</span>
+                            <span>数多くの<br>アカウントに精通</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">⭐</span>
+                            <span>3文字/4文字・<br>OGアカウント運用</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">🌏</span>
+                            <span>各国の<br>アカウント運用経験</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notice noti-sf">
+                <ul class="notice-list">
+                    <li><span style="position:absolute;left:0;top:8px;">✅</span>お客様のPlayStationアカウントに登録された情報を詳細にレポーティングし、PlayStationサポートへの問い合わせをサポートします。<br></li>
+                    <li><span style="position:absolute;left:0;top:8px;">✅</span>アカウントに登録されたコンソール機器のシリアル番号、生年月日、購入履歴の取引番号を一覧でまとめます。コンソール機器のシリアル番号は、PlayStationにおける本人確認において特に重要な個人情報の一つです。</li>
+                </ul>
+            </div>
+
+            <div class="preserve-box">
+                <div class="preserve-title">おすすめ</div>
+                <div class="preserve-list">
+                    <div class="preserve-item"><strong>3文字</strong></div>
+                    <div class="preserve-item"><strong>4文字</strong></div>
+                    <div class="preserve-item"><strong>海外垢</strong></div>
+                    <div class="preserve-item"><strong>購入した垢</strong></div>
+                    <div class="preserve-item"><strong>昔のアカウント</strong></div>
+                    <div class="preserve-item"><strong>その他/大切なアカウント</strong></div>
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>サービスの活用例</h3>
+                <p>アカウントの紛失や盗難時にPlayStationサポートに問い合わせる際、シリアル番号、取引番号、生年月日は本人確認のための重要な情報となります。万が一の事態に備え、ご利用中のPSNアカウントの情報を把握しておくことを強くおすすめします。通常、シリアル番号（SN）、取引番号（Tid）、生年月日（dob）が揃っていれば、本人確認が通りやすくなります。</p>
+                <span class="note-text">※本サービスはアカウントの取り返しや詐欺を助長するものではありません。また、必ず本人確認が通ることを保証するものではありません。</span>
+                <p>高額なアカウントを購入したにもかかわらず、取り返されたり詐欺に遭ったりすると、全てが水の泡です。ご自身で対応できるよう、アカウント情報を事前に確保しておくことは非常に有効な対策です。また、アカウントが取り返された場合に問い合わせ方法がわからないお客様には、サポートも提供いたします。</p>
+                <span class="note-text">※アカウントの地域によっては問い合わせサポートができない場合がございます。</span>
+            </div>
+            <div class="notice">
+                <div class="notice-title">注意事項</div>
+                <ul class="notice-list">
+                    <li>アカウントにログイン可能な状態である必要があります。</li>
+                    <li>登録メールアドレスにアクセスできる必要があります。</li>
+                    <li>基本どの国のアカウントでも情報取得可能です。</li>
+                    <li>情報の収集・整理には1～2日程度かかります。</li>
+                    <li>代行中はアカウントを一時的にお預かりし、情報調査のためメールアドレスを変更させていただきます。</li>
+                    <li>メールアドレス変更後、新しいメールアドレスをお知らせしますので、コンソール機器へのログインやゲームプレイは引き続き可能です。</li>
+                    <li>代行期間中のメールアドレス変更はできません。代行完了後、メールアドレスの更新をお願いいたします。</li>
+                    <li>取引完了後、新しいメールアドレスを当方に伝える必要はありません。トラブル防止のため、当方が知らない新しいメールアドレスへの変更をおすすめします。</li>
+                </ul>
+            </div>
+
+            <div class="button-row">
+                <a href="https://119699.github.io/iceQShop/contact.html" class="button">購入へ進む</a>
+                <a href="https://119699.github.io/iceQShop/home.html" class="button secondary">ホームへ戻る</a>
+            </div>
+        </div>
+    </main>
+
+<footer>
+   iceQshop  © 2026 | <a href="https://119699.github.io/iceQShop/team-of-service.html">利用規約</a>
+</footer>
+
+<script>
+    fetch('https://raw.githubusercontent.com/119699/iceQShop/main/header.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('header.html の読み込みに失敗しました');
+            }
+            return response.text();
+        })
+        .then(data => {
+            const base = 'https://119699.github.io/iceQShop/';
+            let fixed = data
+                .replace(/src=["']([^"']+)["']/g, (m, p) => {
+                    if (p.startsWith('http') || p.startsWith('//') || p.startsWith('data:')) return m;
+                    return `src="${new URL(p, base).href}"`;
+                })
+                .replace(/href=["']([^"']+\.css)["']/g, (m, p) => {
+                    if (p.startsWith('http') || p.startsWith('//')) return m;
+                    return `href="${new URL(p, base).href}"`;
+                })
+                .replace(/url\((["']?)([^)"']+)\1\)/g, (m, q, p) => {
+                    if (p.startsWith('http') || p.startsWith('//') || p.startsWith('data:')) return m;
+                    return `url(${q}${new URL(p, base).href}${q})`;
+                });
+
+            document.getElementById('header-container').innerHTML = fixed;
+        })
+        .catch(error => {
+            console.error(error);
+            document.getElementById('header-container').innerHTML = 
+                '<header style="padding:20px;text-align:center;background:#fff;border-bottom:1px solid #ffebee;">' +
+                '<h1 style="color:#E1166A;">iceQshop</h1></header>';
+        });
+</script>
+
+</body>
+</html>

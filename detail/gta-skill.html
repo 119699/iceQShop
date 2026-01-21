@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マネー増加代行 | iceQshop</title>
+    <title>スキル増加代行 | iceQshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/119699/iceQShop/refs/heads/main/Ruci.ico">
 
     <style>
@@ -105,6 +104,27 @@
             margin: 8px 0 32px;
             font-family: 'Poppins', sans-serif;
         }
+        .price span {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .notice {
+            background: #fff5f7;
+            border: 2px solid #ffcdd2;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        .notice strong {
+            color: var(--accent-pink);
+        }
 
         .plan-section {
             margin-bottom: 40px;
@@ -125,7 +145,7 @@
         }
 
         .section-subtitle {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #555;
             background: #e3f2fd;
             padding: 4px 12px;
@@ -147,7 +167,7 @@
             padding: 20px 10px;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative; /* For absolute positioning of badge */
+            position: relative;
             cursor: default;
             display: flex;
             flex-direction: column;
@@ -176,34 +196,6 @@
             font-weight: 900;
             color: var(--price);
             font-family: 'Poppins', sans-serif;
-        }
-
-        .badge-sale {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 900;
-            padding: 4px 8px;
-            border-radius: 0 12px 0 12px; /* Unique shape */
-            box-shadow: 0 2px 4px rgba(255, 65, 108, 0.4);
-            z-index: 2;
-            transform: rotate(3deg);
-            white-space: nowrap;
-        }
-
-        .badge-sellable {
-            font-size: 0.65rem;
-            color: #E1166A;
-            border: 1px solid #E1166A;
-            padding: 1px 4px;
-            border-radius: 4px;
-            margin-left: 4px;
-            vertical-align: middle;
-            display: inline-block;
-            margin-bottom: 2px;
         }
 
         .button-row {
@@ -278,12 +270,6 @@
                 max-width: 400px;
                 box-sizing: border-box;
             }
-            .badge-sale {
-                top: -4px;
-                right: -4px;
-                font-size: 0.65rem;
-                padding: 3px 6px;
-            }
         }
     </style>
 </head>
@@ -293,143 +279,34 @@
     <main class="main">
         <div class="product-detail">
             <div class="product-image-container">
-                <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Gtav/Ingame/gta_money.png">
+                <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Gtav/Ingame/gta_skill.jpg">
             </div>
-            <h1>マネー増加代行</h1>
 
-            <div class="price">2,500円〜</div>
-            <div class="plan-section">
-                <div class="section-title">
-                    手持ちマネー増加
-                </div>
-                <div class="plan-grid">
-                    <div class="plan-card">
-                        <span class="plan-name">+$1千万</span>
-                        <span class="plan-price">2,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">20% OFF</div>
-                        <span class="plan-name">+$2千万</span>
-                        <span class="plan-price">4,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">20% OFF</div>
-                        <span class="plan-name">+$3千万</span>
-                        <span class="plan-price">6,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">32% OFF</div>
-                        <span class="plan-name">+$5千万</span>
-                        <span class="plan-price">8,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">37% OFF</div>
-                        <span class="plan-name">+$7千万</span>
-                        <span class="plan-price">1万1,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">40% OFF</div>
-                        <span class="plan-name">+$1億</span>
-                        <span class="plan-price">1万5,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <span class="plan-name" style="color: var(--accent-pink);">それ以上</span>
-                        <span class="plan-price">要相談</span>
-                    </div>
-                </div>
+            <h1>スキル増加代行</h1>
+
+            <div class="price">
+                1スキルMAX/500円〜
             </div>
             <div class="plan-section">
                 <div class="section-title">
-                    売却車両：デラックソ導入    
-                    <span class="section-subtitle">総資産を増やそう！<span class="badge-sellable">売却可能</span></span>
+                    対応スキル
                 </div>
-                <div class="product-image-container">
-                    <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Gtav/Ingame/gta_deluxo.png">
-                </div>
-                <br>
                 <div class="plan-grid">
                     <div class="plan-card">
-                        <span class="plan-name">10台</span>
-                        <span class="plan-price">1,500円</span>
+                        <span class="plan-name">体力</span>
                     </div>
                     <div class="plan-card">
-                        <div class="badge-sale">17% OFF</div>
-                        <span class="plan-name">20台</span>
-                        <span class="plan-price">2,500円</span>
+                        <span class="plan-name">射撃</span>
                     </div>
                     <div class="plan-card">
-                        <div class="badge-sale">27% OFF</div>
-                        <span class="plan-name">30台</span>
-                        <span class="plan-price">3,300円</span>
+                        <span class="plan-name">飛行</span>
                     </div>
                     <div class="plan-card">
-                        <div class="badge-sale">33% OFF</div>
-                        <span class="plan-name">50台</span>
-                        <span class="plan-price">5,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">40% OFF</div>
-                        <span class="plan-name">70台</span>
-                        <span class="plan-price">6,300円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">47% OFF</div>
-                        <span class="plan-name">100台</span>
-                        <span class="plan-price">8000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">50% OFF</div>
-                        <span class="plan-name">200台</span>
-                        <span class="plan-price">1万5,000円</span>
+                        <span class="plan-name">運転</span>
                     </div>
                 </div>
             </div>
-            <div class="plan-section">
-                <div class="section-title">
-                    売却車両：オプレッサー導入    
-                    <span class="section-subtitle">総資産を増やそう！<span class="badge-sellable">売却可能</span></span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Gtav/Ingame/gta_opMk2.png">
-                </div>
-                <br>
-                <div class="plan-grid">
-                    <div class="plan-card">
-                        <span class="plan-name">10台</span>
-                        <span class="plan-price">2,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">12% OFF</div>
-                        <span class="plan-name">20台</span>
-                        <span class="plan-price">3,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">20% OFF</div>
-                        <span class="plan-name">30台</span>
-                        <span class="plan-price">4,800円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">30% OFF</div>
-                        <span class="plan-name">50台</span>
-                        <span class="plan-price">7,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">39% OFF</div>
-                        <span class="plan-name">70台</span>
-                        <span class="plan-price">8,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">42% OFF</div>
-                        <span class="plan-name">100台</span>
-                        <span class="plan-price">1万1,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">50% OFF</div>
-                        <span class="plan-name">200台</span>
-                        <span class="plan-price">2万円</span>
-                    </div>
-                </div>
-            </div>
+
             <div class="button-row">
                 <a href="https://119699.github.io/iceQShop/contact.html" class="button">購入へ進む</a>
                 <a href="https://119699.github.io/iceQShop/home.html" class="button secondary">ホームへ戻る</a>

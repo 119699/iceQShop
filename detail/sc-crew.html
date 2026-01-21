@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マネー増加代行 | iceQshop</title>
+    <title>クルー代行 | iceQshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-
+    
+    <!-- サイトアイコンの設定 -->
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/119699/iceQShop/refs/heads/main/Ruci.ico">
-
+    
     <style>
         :root {
             --bg: #ffffff;
@@ -17,6 +18,7 @@
             --accent-pink: #E1166A;
             --accent-blue: #334FD4;
             --accent-orange: #FF6699;
+            --accent-green: #4CAF50;
             --price: #d32f2f;
             --text: #333333;
             --shadow: 0 6px 16px rgba(0,0,0,0.10);
@@ -31,6 +33,7 @@
             padding: 0;
             min-height: 100vh;
         }
+        /* Header Styles */
         header {
             background: #ffffff;
             border-bottom: 1px solid #ffebee;
@@ -62,6 +65,7 @@
             font-size: 0.95rem;
         }
 
+        /* Main Layout */
         .main {
             padding: 80px 24px 40px;
             max-width: 900px;
@@ -76,6 +80,7 @@
             box-sizing: border-box;
         }
 
+        /* Image Optimization */
         .product-image-container {
             width: 100%;
             background: #fff5f7;
@@ -90,6 +95,7 @@
             object-fit: cover;
         }
 
+        /* Typography */
         .product-detail h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 2rem;
@@ -106,6 +112,106 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Preserve Box (Safe Data) */
+        .preserve-box {
+            background: #e3f2fd;
+            border: 2px solid #90caf9;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0 20px;
+        }
+        .preserve-title {
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .preserve-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .preserve-item {
+            background: #fff;
+            border: 1px solid #bbdefb;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .preserve-item::before {
+            content: '✅';
+            font-size: 0.8rem;
+        }
+
+        /* Notice Box (Warning) */
+        .notice {
+            background: #fff5f7;
+            border: 2px solid #ffcdd2;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 0 0 40px;
+        }
+        .noti-sf {
+            background: #e7ffd9;
+            border: 2px solid #81ff92;
+        }
+        .notice-title {
+            font-weight: 700;
+            color: var(--accent-pink);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .notice-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .notice-list li {
+            padding: 8px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        .notice-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+        .notice-list li strong {
+            color: #c62828;
+            font-weight: 700;
+        }
+
+        /* Option Images Grid */
+        .option-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .option-image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid #ffebee;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+
+        /* Pricing Plans Grid Design */
         .plan-section {
             margin-bottom: 40px;
         }
@@ -125,7 +231,7 @@
         }
 
         .section-subtitle {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #555;
             background: #e3f2fd;
             padding: 4px 12px;
@@ -147,7 +253,7 @@
             padding: 20px 10px;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative; /* For absolute positioning of badge */
+            position: relative;
             cursor: default;
             display: flex;
             flex-direction: column;
@@ -178,34 +284,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .badge-sale {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 900;
-            padding: 4px 8px;
-            border-radius: 0 12px 0 12px; /* Unique shape */
-            box-shadow: 0 2px 4px rgba(255, 65, 108, 0.4);
-            z-index: 2;
-            transform: rotate(3deg);
-            white-space: nowrap;
-        }
-
-        .badge-sellable {
-            font-size: 0.65rem;
-            color: #E1166A;
-            border: 1px solid #E1166A;
-            padding: 1px 4px;
-            border-radius: 4px;
-            margin-left: 4px;
-            vertical-align: middle;
-            display: inline-block;
-            margin-bottom: 2px;
-        }
-
+        /* Buttons */
         .button-row {
             display: flex;
             flex-wrap: wrap;
@@ -242,6 +321,7 @@
             transform: scale(1.05);
         }
 
+        /* Footer */
         footer {
             background: linear-gradient(to right, #E1166A, #ff6699);
             color: white;
@@ -255,6 +335,7 @@
             text-decoration: underline;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .main { padding: 80px 16px 24px; }
             .product-detail { padding: 24px 16px; }
@@ -278,11 +359,8 @@
                 max-width: 400px;
                 box-sizing: border-box;
             }
-            .badge-sale {
-                top: -4px;
-                right: -4px;
-                font-size: 0.65rem;
-                padding: 3px 6px;
+            .option-image-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -293,142 +371,48 @@
     <main class="main">
         <div class="product-detail">
             <div class="product-image-container">
-                <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Gtav/Ingame/gta_money.png">
+                <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Socialclub/Crew/Crew.png">
             </div>
-            <h1>マネー増加代行</h1>
 
-            <div class="price">2,500円〜</div>
-            <div class="plan-section">
-                <div class="section-title">
-                    手持ちマネー増加
-                </div>
-                <div class="plan-grid">
-                    <div class="plan-card">
-                        <span class="plan-name">+$1千万</span>
-                        <span class="plan-price">2,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">20% OFF</div>
-                        <span class="plan-name">+$2千万</span>
-                        <span class="plan-price">4,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">20% OFF</div>
-                        <span class="plan-name">+$3千万</span>
-                        <span class="plan-price">6,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">32% OFF</div>
-                        <span class="plan-name">+$5千万</span>
-                        <span class="plan-price">8,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">37% OFF</div>
-                        <span class="plan-name">+$7千万</span>
-                        <span class="plan-price">1万1,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">40% OFF</div>
-                        <span class="plan-name">+$1億</span>
-                        <span class="plan-price">1万5,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <span class="plan-name" style="color: var(--accent-pink);">それ以上</span>
-                        <span class="plan-price">要相談</span>
-                    </div>
-                </div>
+            <h1>クルー代行</h1>
+
+            <div class="price">
+                1,000円〜
             </div>
             <div class="plan-section">
                 <div class="section-title">
-                    売却車両：デラックソ導入    
-                    <span class="section-subtitle">総資産を増やそう！<span class="badge-sellable">売却可能</span></span>
+                    代行内容
                 </div>
                 <div class="product-image-container">
-                    <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Gtav/Ingame/gta_deluxo.png">
+                    <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Socialclub/Crew/SC_Avatar_1.jpg">
                 </div>
                 <br>
                 <div class="plan-grid">
                     <div class="plan-card">
-                        <span class="plan-name">10台</span>
-                        <span class="plan-price">1,500円</span>
+                        <span class="plan-name">クルーエンブレム</span>
+                        <span class="plan-price">1000円</span>
                     </div>
                     <div class="plan-card">
-                        <div class="badge-sale">17% OFF</div>
-                        <span class="plan-name">20台</span>
-                        <span class="plan-price">2,500円</span>
+                        <span class="plan-name">MODカラー</span>
+                        <span class="plan-price">1000円</span>
                     </div>
                     <div class="plan-card">
-                        <div class="badge-sale">27% OFF</div>
-                        <span class="plan-name">30台</span>
-                        <span class="plan-price">3,300円</span>
+                        <span class="plan-name">MODアクション</span>
+                        <span class="plan-price">1000円</span>
                     </div>
                     <div class="plan-card">
-                        <div class="badge-sale">33% OFF</div>
-                        <span class="plan-name">50台</span>
-                        <span class="plan-price">5,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">40% OFF</div>
-                        <span class="plan-name">70台</span>
-                        <span class="plan-price">6,300円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">47% OFF</div>
-                        <span class="plan-name">100台</span>
-                        <span class="plan-price">8000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">50% OFF</div>
-                        <span class="plan-name">200台</span>
-                        <span class="plan-price">1万5,000円</span>
+                        <span class="plan-name">MODクルー作成</span>
+                        <span class="plan-price">4000円</span>
                     </div>
                 </div>
             </div>
-            <div class="plan-section">
-                <div class="section-title">
-                    売却車両：オプレッサー導入    
-                    <span class="section-subtitle">総資産を増やそう！<span class="badge-sellable">売却可能</span></span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://raw.githubusercontent.com/119699/iceQShop/main/Image/Shop/Gtav/Ingame/gta_opMk2.png">
-                </div>
-                <br>
-                <div class="plan-grid">
-                    <div class="plan-card">
-                        <span class="plan-name">10台</span>
-                        <span class="plan-price">2,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">12% OFF</div>
-                        <span class="plan-name">20台</span>
-                        <span class="plan-price">3,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">20% OFF</div>
-                        <span class="plan-name">30台</span>
-                        <span class="plan-price">4,800円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">30% OFF</div>
-                        <span class="plan-name">50台</span>
-                        <span class="plan-price">7,000円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">39% OFF</div>
-                        <span class="plan-name">70台</span>
-                        <span class="plan-price">8,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">42% OFF</div>
-                        <span class="plan-name">100台</span>
-                        <span class="plan-price">1万1,500円</span>
-                    </div>
-                    <div class="plan-card">
-                        <div class="badge-sale">50% OFF</div>
-                        <span class="plan-name">200台</span>
-                        <span class="plan-price">2万円</span>
-                    </div>
-                </div>
+            <div class="notice noti-sf">
+                <ul class="notice-list">
+                    <li><span style="position:absolute;left:0;top:8px;">✅</span>クルーエンブレム<br>お好きな画像に変更します。</li>
+                    <li><span style="position:absolute;left:0;top:8px;">✅</span>MODクルーカラー<br>愛国心、白、黒など。<br>通常では設定できないカラーに設定します。</li>
+                    <li><span style="position:absolute;left:0;top:8px;">✅</span>MODクルーアクション<br>通常文字に特殊記号、色を組み合わせることができます。</li>
+                    <li><span style="position:absolute;left:0;top:8px;">✅</span>MODクルー作成<br>上記3点代行+お客様完全オリジナルのクルーを作成します。</li>
+                </ul>
             </div>
             <div class="button-row">
                 <a href="https://119699.github.io/iceQShop/contact.html" class="button">購入へ進む</a>
