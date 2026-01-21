@@ -7,6 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- サイトアイコンの設定 -->
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/119699/iceQShop/refs/heads/main/Ruci.ico">
+    
     <style>
         :root {
             --bg: #ffffff;
@@ -94,7 +98,7 @@
             transform: scale(1.05) rotate(5deg);
         }
 
-        /* Notice Box */
+        /* Notice Box (Original) */
         .contact-notice {
             background: #fff5f7;
             border: 2px solid #ffcdd2;
@@ -110,6 +114,52 @@
         .highlight-pink {
             color: var(--accent-pink);
             font-weight: 700;
+        }
+
+        /* New GTA Notice Box */
+        .gta-notice {
+            background: #eef6ff; /* Very light blue */
+            border: 2px solid #bbdefb; /* Light blue border */
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(51, 79, 212, 0.05);
+        }
+        .gta-notice-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .gta-notice p {
+            margin: 0 0 12px 0;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        .highlight-blue {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+        .gta-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #fff;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .gta-link-btn:hover {
+            background-color: var(--accent-blue);
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         /* Section Titles */
@@ -148,7 +198,7 @@
             border-color: var(--accent-pink);
             box-shadow: 0 10px 25px rgba(225, 22, 106, 0.15);
         }
-        .contact-icon {
+        .contact-icon-sm {
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -160,7 +210,7 @@
             font-size: 1rem;
         }
 
-        /* Profile List */
+        /* Profile List (Old style - kept if needed, but visually replaced) */
         .profile-list {
             list-style: none;
             padding: 0;
@@ -182,6 +232,59 @@
             margin-right: 12px;
             font-weight: bold;
             min-width: 20px;
+        }
+
+        /* Credential Box (New Style for Profile) */
+        .credential-section {
+            margin-bottom: 32px;
+        }
+        .credential-box {
+            background: #fff;
+            border: 2px solid #e3f2fd;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(51, 79, 212, 0.05);
+        }
+        .credential-title {
+            text-align: center;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .credential-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .credential-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #f8fbff;
+            border-radius: 8px;
+            padding: 16px 8px;
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid #e3f2fd;
+            transition: transform 0.2s;
+        }
+        .credential-item:hover {
+            transform: translateY(-2px);
+            background: #fff;
+            border-color: var(--accent-blue);
+        }
+        .credential-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: block;
         }
 
         /* Service Tags */
@@ -303,6 +406,7 @@
             .contact-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .credential-grid { grid-template-columns: repeat(2, 1fr); }
             .legal-grid {
                 grid-template-columns: 1fr;
                 padding: 16px;
@@ -324,6 +428,9 @@
                 box-sizing: border-box;
             }
         }
+        @media (min-width: 600px) {
+            .credential-grid { grid-template-columns: repeat(4, 1fr); }
+        }
     </style>
 </head>
 <body>
@@ -341,17 +448,30 @@
                 <h1 style="margin:0; font-size:1.5rem; color:var(--accent-pink);">㍋Rucifxr</h1>
             </div>
 
+
+            <!-- GTA代行について（新規追加） -->
+            <div class="gta-notice">
+                <span class="gta-notice-title">🔐 GTA代行について</span>
+                <p>
+                    当店は<span class="highlight-blue">メールアドレス＆パスワードを共有しないQRログイン方法</span>を採用しております！<br>
+                    メールアドレス＆パスワードが第三者(当店)に漏れる心配がないため安全にご利用いただけます！
+                </p>
+                <a href="https://x.com/icea/status/2002380422232330646?s=20" target="_blank" class="gta-link-btn">
+                    <span>✅</span> 詳しくはこちら（Xのポスト）
+                </a>
+            </div>
             <!-- 注意書き -->
             <div class="contact-notice">
                 <p>ご購入の際は<span class="highlight-pink">下記から</span>お願いします。</p>
             </div>
+
 
             <!-- 連絡先リンク -->
             <h2 class="section-title">連絡先</h2>
             <div class="contact-grid">
                 <a href="https://tinyurl.com/4rjeuczd" target="_blank" class="contact-card">
                     <!-- Twitter Icon -->
-                    <div class="contact-icon" style="background:#e8f5fe; padding:4px;">
+                    <div class="contact-icon-sm" style="background:#e8f5fe; padding:4px;">
                         <img src="https://img.icons8.com/?size=256&id=8824&format=png" style="width:100%; display:block;" alt="Twitter">
                     </div>
                     <span class="contact-name" style="color:#1da1f2;">Twitter</span>DM送信
@@ -359,7 +479,7 @@
 
                 <a href="https://tinyurl.com/974nkkea" target="_blank" class="contact-card">
                     <!-- Discord Icon -->
-                    <div class="contact-icon" style="background:#eef2ff; padding:4px;">
+                    <div class="contact-icon-sm" style="background:#eef2ff; padding:4px;">
                         <img src="https://img.icons8.com/?size=256&id=30888&format=png" style="width:100%; display:block;" alt="Discord">
                     </div>
                     <span class="contact-name" style="color:#7289da;">Discord</span>チケット送信
@@ -367,7 +487,7 @@
 
                 <a href="https://tinyurl.com/2bj8997f" target="_blank" class="contact-card">
                     <!-- LINE Icon -->
-                    <div class="contact-icon" style="background:#e9f8eb; padding:4px;">
+                    <div class="contact-icon-sm" style="background:#e9f8eb; padding:4px;">
                         <img src="https://img.icons8.com/?size=256&id=38490&format=png" style="width:100%; display:block;" alt="LINE">
                     </div>
                     <span class="contact-name" style="color:#00b900;">LINE</span>チャット送信
@@ -375,24 +495,45 @@
 
                 <a href="https://tinyurl.com/iceVouch" target="_blank" class="contact-card">
                     <!-- Terms Icon -->
-                    <div class="contact-icon" style="background:#f5f5f5; padding:4px;">
+                    <div class="contact-icon-sm" style="background:#f5f5f5; padding:4px;">
                         <img src="https://img.icons8.com/?size=256w&id=12629&format=png" style="width:100%; display:block;" alt="Terms">
                     </div>
                     <span class="contact-name">実績を確認</span>
                 </a>
             </div>
-
-            <!-- BxRプロフィール -->
-            <h2 class="section-title">👤 BxRプロフィール</h2>
-            <ul class="profile-list">
-                <li class="profile-item"><span class="check-icon">✅</span>GTA＆業者歴8年以上の経験</li>
-                <li class="profile-item"><span class="check-icon">✅</span>Twitter,Discord,RMTサイト等で実績多数</li>
-                <li class="profile-item"><span class="check-icon">✅</span>取引後も相談サポートを継続的に実施</li>
-                <li class="profile-item"><span class="check-icon">✅</span>即日対応と丁寧なコミュニケーション</li>
-                <li class="profile-item"><span class="check-icon">✅</span>3文字/4文字やOGアカウント運用に精通</li>
-                <li class="profile-item"><span class="check-icon">✅</span>トラブル対応とリスク管理のノウハウ蓄積</li>
-                <li class="profile-item"><span class="check-icon">✅</span>多様なサービスに対応可能な技術力</li>
-            </ul>
+            <h2 class="section-title">プロフィール</h2>
+            <!-- BxRプロフィール (デザイン変更) -->
+            <div class="credential-section">
+                <div class="credential-box">
+                    <div class="credential-title"><span style="font-size:1.2rem">🛡️</span> 運営実績</div>
+                    <div class="credential-grid">
+                        <div class="credential-item">
+                            <span class="credential-icon">🏆</span>
+                            <span>GTA＆業者歴<br>8年以上</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">📊</span>
+                            <span>3文字/4文字・<br>OG垢運用</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">🤝</span>
+                            <span>継続サポート<br>即日対応</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">🛡️</span>
+                            <span>多数実績<br>リスク管理</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">✅</span>
+                            <span>多様なサービスに<br>対応可能</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">💰</span>
+                            <span>お支払い方法<br>多数対応</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- 特定商取引法 -->
             <div class="legal-section">
