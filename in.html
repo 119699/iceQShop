@@ -773,13 +773,20 @@
         /* --- Data Handling --- */
         let originalData = [];
 
-        function getNumericPrice(priceStr) {
-            if (!priceStr) return 0;
+        // 価格の解析ヘルパー関数
+        function getPriceInfo(priceStr) {
+            if (!priceStr) return { val: 0, isNum: false };
+            
+            // 範囲表記（例: 1000~2000）の場合、最初の数値を取得
             if (priceStr.includes('～') || priceStr.includes('~')) {
                 const parts = priceStr.split(/[～~]/);
-                return parseFloat(parts[0]) || 0;
+                const num = parseFloat(parts[0]);
+                return { val: isNaN(num) ? 0 : num, isNum: !isNaN(num) };
             }
-            return parseFloat(priceStr) || 0;
+            
+            // 通常の数値変換
+            const num = parseFloat(priceStr);
+            return { val: isNaN(num) ? 0 : num, isNum: !isNaN(num) };
         }
 
         function loadAndDisplayFile() {
@@ -839,10 +846,32 @@
 
             switch (sortSelect) {
                 case 'price-desc':
-                    filteredData.sort((a, b) => getNumericPrice(b.price) - getNumericPrice(a.price));
+                    // 高い順: 数値同士は降順、文字列は最後
+                    filteredData.sort((a, b) => {
+                        const infoA = getPriceInfo(a.price);
+                        const infoB = getPriceInfo(b.price);
+                        
+                        if (infoA.isNum && infoB.isNum) {
+                            return infoB.val - infoA.val; // 数値の降順
+                        }
+                        if (infoA.isNum) return -1; // Aが数値なら優先（前へ）
+                        if (infoB.isNum) return 1;  // Bが数値ならAを後ろへ
+                        return 0;
+                    });
                     break;
                 case 'price-asc':
-                    filteredData.sort((a, b) => getNumericPrice(a.price) - getNumericPrice(b.price));
+                    // 安い順: 数値同士は昇順、文字列は最後
+                    filteredData.sort((a, b) => {
+                        const infoA = getPriceInfo(a.price);
+                        const infoB = getPriceInfo(b.price);
+                        
+                        if (infoA.isNum && infoB.isNum) {
+                            return infoA.val - infoB.val; // 数値の昇順
+                        }
+                        if (infoA.isNum) return -1; // Aが数値なら優先（前へ）
+                        if (infoB.isNum) return 1;  // Bが数値ならAを後ろへ
+                        return 0;
+                    });
                     break;
                 case 'az':
                     filteredData.sort((a, b) => {
